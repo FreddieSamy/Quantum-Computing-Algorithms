@@ -142,12 +142,7 @@ def Decoder(circuit):
 # 
 # #### Different corrections are stated in the following table. <br>
 #     
-# | <font size="4">$|$x,y$\rangle$</font> | <font size="4">$\ \ Bell \ State = $</font><font size="5">$\frac{(|0,y\rangle+(-1)^x|1,\bar{y}\rangle)}{\sqrt{2}} \ \ $</font> | <font size="4">Correction</font> | <font size="4">Symbol</font> |
-#  :-: | :-: | :-: | :-: |
-# | <font size="4">$|$0,0$\rangle$</font> | <font size="5">$\frac{(|00\rangle+|11\rangle)}{\sqrt{2}}$</font> | <font size="4">CNOT</font> | <img src="images/00.png" width="50"/> |
-# | <font size="4">$|$0,1$\rangle$</font> | <font size="5">$\frac{(|01\rangle+|10\rangle)}{\sqrt{2}}$</font> | <font size="4">OCNOT</font> | <img src="images/01.png" width="50"/> |
-# | <font size="4">$|$1,0$\rangle$</font> | <font size="5">$\frac{(|00\rangle-|11\rangle)}{\sqrt{2}}$</font> | <font size="4">CNOT,<br> NOT $ \otimes $ NOT</font> | <img src="images/10.png" width="60"/> |
-# | <font size="4">$|$1,1$\rangle$</font> | <font size="5">$\frac{(|01\rangle-|10\rangle)}{\sqrt{2}}$ | <font size="4">OCNOT,<br> NOT $ \otimes $ NOT</font> | <img src="images/11.png" width="60"/>|
+# ![CorrectionTable.png](attachment:CorrectionTable.png)
 # 
 # 
 
@@ -240,6 +235,12 @@ print("Bob received : ",list(counts.keys())[0][::-1])
 # In[8]:
 
 
+qc.draw(output="mpl")
+
+
+# In[9]:
+
+
 #select the initial value of the EPR source
 qubit0,qubit1= 1,1
 
@@ -259,10 +260,4 @@ for clbit0 in [0,1]:
         msgReceived = list(counts.keys())[0][::-1]
         
         print("Bob received : ", msgReceived)
-
-
-# In[9]:
-
-
-qc.draw(output="mpl")
 
